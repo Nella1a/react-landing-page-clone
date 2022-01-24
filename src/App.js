@@ -9,7 +9,8 @@ import sectionOneImage from './img/sectionOneImage.png';
 //style nav bar & ul, li, button
 const navStyle = css`
   padding: 0 2rem;
-  width: 100vw;
+  width: 87.5rem;
+  margin: 0 auto;
   height: auto;
   position: fixed;
   border: 1px solid green;
@@ -17,6 +18,7 @@ const navStyle = css`
   background-color: rgb(41, 41, 41);
 
   ul {
+    width: inherit;
     display: flex;
     list-style: none;
     gap: 50px;
@@ -44,12 +46,15 @@ const navButton = css`
   border-radius: 17px;
   position: relative;
   top: -0.5rem;
+  font-size: 17px;
 `;
 
-//style section one
+//**** section one
 const sectionOneStyle = css`
 display: flex;
-  width: 80vw;
+height: 31.25rem;
+
+
   position: relative;
   top: 9rem;
   margin:auto;
@@ -68,10 +73,11 @@ display: flex;
     font-weight: 400;
     text-align: left;
     padding-left: 1rem;
+    margin: 2.5rem 0rem;
+
 
     span {
       &::before {
-
           content: ' ';
           display: block;
         }
@@ -80,22 +86,34 @@ display: flex;
   }
 
   article {
-    width: 80%;
-    padding: 0.5rem;
+   display: flex;
+   flex-direction: column;
+    padding: .5rem;
+
 
     p{
       font-weight: 400px;
       text-align: left;
+      font-size: 1.5rem;
+      color: #bfbfbf;
+      margin-top: 0px
+    }
+
+    span {
+      color: #96A5F3
     }
 `;
 
-const div = css`
-  width: 110%;
+const paragraphBorderStyle = css`
+  border-bottom: 1px dashed #ffff;
+  color: #ffff;
+  width: 11.1rem;
+  font-size: 17px;
 `;
 
-const imageSectionOne = css`
+/* const imageSectionOne = css`
   width: 6rem;
-`;
+`; */
 
 const divButtonStyle = css`
   display: flex;
@@ -109,6 +127,15 @@ const ButtonStyleSectionOne = css`
 
 const ButtonStyleSectionTwo = css`
   width: 9rem;
+  background-color: transparent;
+  border: 1px solid #fff;
+`;
+
+// section two
+const sectionTwoStyle = css`
+  width: 110%;
+
+  margin: 4rem auto;
 `;
 
 function Hello() {
@@ -128,7 +155,14 @@ function Hello() {
 
 function Header() {
   // Import result is the URL of your image
-  return <img css={div} width="inherit" src={sectionOneImage} alt="Logo" />;
+  return (
+    <img
+      css={sectionTwoStyle}
+      width="inherit"
+      src={sectionOneImage}
+      alt="Logo"
+    />
+  );
 }
 
 function App() {
@@ -146,6 +180,7 @@ function App() {
           </li>
         </ul>
       </nav>
+      // **** start first section
       <section css={sectionOneStyle}>
         <article>
           <h1>No more</h1>
@@ -154,16 +189,30 @@ function App() {
           </h2>
           <p>Try the work hub for modern teams</p>
           <div css={divButtonStyle}>
-            <button css={[navButton, ButtonStyleSectionOne]}></button>
-            <button css={[navButton, ButtonStyleSectionTwo]}></button>
+            <button css={[navButton, ButtonStyleSectionOne]}>
+              Sign up with Google
+            </button>
+            <button css={[navButton, ButtonStyleSectionTwo]}>Play video</button>
           </div>
+          <p css={paragraphBorderStyle}>Or sign up via email </p>
+          <p style={{ fontSize: '.9rem', fontWeight: '300' }}>
+            By signing up, you agree to our <span>Privacy Policy</span> and
+            <span> Terms of Service.</span>
+          </p>
         </article>
-        <article css={div}>
-          <Header css={div}></Header>
-        </article>
+        <article
+          style={{
+            backgroundImage: `url(${sectionOneImage})`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            width: '800px',
+            height: 'auto',
+            marginLeft: '90px',
+          }}
+        ></article>
       </section>
-      <section css={div}>
-        <Hello css={imageSectionOne} />
+      <section css={sectionTwoStyle}>
+        <Hello />
       </section>
     </div>
   );

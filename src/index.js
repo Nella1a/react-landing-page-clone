@@ -14,7 +14,9 @@ ReactDOM.render(
         :before {
           box-sizing: border-box;
         }
+
         body {
+          max-width: 1460px;
           margin: 0;
           background-color: rgb(41, 41, 41);
           color: rgb(255, 254, 248);
@@ -27,6 +29,11 @@ ReactDOM.render(
         h1 {
           padding: 0;
           margin: 0;
+        }
+        section {
+          width: 85%;
+          margin: 0 auto;
+          border: 1px solid yellow;
         }
       `}
     />
