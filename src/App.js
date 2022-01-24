@@ -1,8 +1,15 @@
 /** @jsxImportSource @emotion/react */
 import './App.css';
 import { ClassNames, css, Global, jsx } from '@emotion/react';
+import { ReactComponent as FlowerIcon } from './img/all.svg';
+// import Forbes from './img/Forbes.png';
+// import Gartner from './img/Gartner.png';
 import ImagePeopleSectionOne from './img/ImagePeopleSectionOne.png';
+import { ReactComponent as LogoIcon } from './img/ProductOfTheDay.svg';
 import sectionOneImage from './img/sectionOneImage.png';
+
+// import TechCrunch from './img/TechCrunch.png';
+// import VentureBeat from './img/VentureBeat.png';
 
 // Page: https://qatalog.com/?ref=landingfolio
 
@@ -13,7 +20,7 @@ const navStyle = css`
   margin: 0 auto;
   height: auto;
   position: fixed;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   z-index: 2;
   background-color: rgb(41, 41, 41);
 
@@ -26,6 +33,12 @@ const navStyle = css`
     justify-content: space-between;
     padding: 0.5rem;
     position: relative;
+  }
+
+  li {
+    &:hover {
+      border-bottom: 1px solid #fff;
+    }
   }
 `;
 
@@ -76,6 +89,7 @@ height: 31.25rem;
     margin: 2.5rem 0rem;
 
 
+
     span {
       &::before {
           content: ' ';
@@ -84,12 +98,6 @@ height: 31.25rem;
       }
     }
   }
-
-  article {
-   display: flex;
-   flex-direction: column;
-    padding: .5rem;
-
 
     p{
       font-weight: 400px;
@@ -102,6 +110,12 @@ height: 31.25rem;
     span {
       color: #96A5F3
     }
+`;
+
+const sectionOneArticle = css`
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
 `;
 
 const paragraphBorderStyle = css`
@@ -123,22 +137,102 @@ const divButtonStyle = css`
 
 const ButtonStyleSectionOne = css`
   width: 13.6rem;
+  &:hover {
+    background-color: rgb(20, 44, 167);
+    border: 1px solid rgb(20, 44, 167);
+  }
 `;
 
 const ButtonStyleSectionTwo = css`
   width: 9rem;
   background-color: transparent;
   border: 1px solid #fff;
+  &:hover {
+    background-color: rgb(62, 62, 62);
+    border: 1px solid rgb(62, 62, 62);
+  }
 `;
 
 // section two
 const sectionTwoStyle = css`
-  width: 110%;
-
-  margin: 4rem auto;
+  width: 105%;
+  margin: 3.5rem auto;
 `;
 
-function Hello() {
+//Section Three
+
+const sectionThree_Container = css`
+  display: flex;
+  justify-content: space-between;
+`;
+
+//Section Four
+const sectionFour_Container = css`
+  display: flex;
+  flex-direction: column;
+  padding-top: 9rem;
+
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 6rem;
+    text-align: center;
+  }
+`;
+
+const DivFlowerIcon = css`
+  position: relative;
+  border: 1px solid green;
+  background-color: rgb(25, 56, 213);
+  border-radius: 10px;
+  height: 48px;
+  width: 48px;
+  padding: 10px;
+`;
+
+const sectionFourArticle = css`
+  display: flex;
+  padding: 3rem;
+
+  border-radius: 10px;
+  border: 1px solid yellow;
+
+  h2 {
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: rgb(148, 148, 148);
+  }
+
+  &:hover {
+    background-color: rgb(248, 120, 83);
+  }
+`;
+
+const flexSectionFourContainer = css`
+  display: flex;
+`;
+
+const sectionFourh3 = css`
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem; ;
+`;
+
+const sectionFourParagraph = css`
+  font-size: 1rem;
+  width: 80%;
+  margin: 0 auto;
+`;
+
+function LogoQatalog() {
+  return (
+    <img width="inherit" src={require('./img/logoQataog.png')} alt="Logo" />
+  );
+}
+
+function ImgOfThrePeople() {
   return (
     <img
       style={{
@@ -165,12 +259,38 @@ function Header() {
   );
 }
 
+function VentureBeat() {
+  return (
+    <img width="inherit" src={require('./img/VentureBeat.png')} alt="Logo" />
+  );
+}
+
+function TechCrunch() {
+  return (
+    <img width="inherit" src={require('./img/TechCrunch.png')} alt="Logo" />
+  );
+}
+
+function Gartner() {
+  return <img width="inherit" src={require('./img/Gartner.png')} alt="Logo" />;
+}
+
+function Forbes() {
+  return <img width="inherit" src={require('./img/Forbes.png')} alt="Logo" />;
+}
+
+function FlowerPower() {
+  return <img width="inherit" src={require('./img/all.svg')} alt="Logo" />;
+}
+
 function App() {
   return (
     <div className="App">
       <nav css={navStyle}>
         <ul>
-          <li>Qatalog</li>
+          <li>
+            <LogoQatalog />
+          </li>
           <li css={specificLiStyle}>Produts</li>
           <li>Plans</li>
           <li>Request demo</li>
@@ -180,7 +300,7 @@ function App() {
           </li>
         </ul>
       </nav>
-      // **** start first section
+
       <section css={sectionOneStyle}>
         <article>
           <h1>No more</h1>
@@ -205,14 +325,62 @@ function App() {
             backgroundImage: `url(${sectionOneImage})`,
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
-            width: '800px',
+            minWidth: '800px',
             height: 'auto',
             marginLeft: '90px',
           }}
         ></article>
       </section>
+      {/* Section Two */}
       <section css={sectionTwoStyle}>
-        <Hello />
+        <ImgOfThrePeople />
+      </section>
+      {/* Section Three */}
+      <section css={sectionThree_Container}>
+        <LogoIcon />
+        <VentureBeat />
+        <TechCrunch />
+        <Gartner />
+        <Forbes />
+      </section>
+      {/* Section Four */}
+      <section css={sectionFour_Container}>
+        <h1>It is time for a new way of work</h1>
+        <div css={flexSectionFourContainer}>
+          <article css={sectionFourArticle}>
+            <div css={DivFlowerIcon}>
+              <FlowerPower />
+            </div>
+            <div>
+              <h3 css={sectionFourh3}>See what is important</h3>
+              <p css={sectionFourParagraph}>
+                Gain visibility into al your people, work and tools
+              </p>
+            </div>
+          </article>
+          <article css={sectionFourArticle}>
+            <div css={DivFlowerIcon}>
+              <FlowerPower />
+            </div>
+            <div>
+              <h3 css={sectionFourh3}>See what is important</h3>
+              <p css={sectionFourParagraph}>
+                Gain visibility into al your people, work and tools
+              </p>
+            </div>
+          </article>
+          <article css={sectionFourArticle}>
+            <div css={DivFlowerIcon}>
+              <FlowerPower />
+            </div>
+            <div>
+              <h3 css={sectionFourh3}>See what is important</h3>
+              <p css={sectionFourParagraph}>
+                Gain visibility into al your people, work and tools
+              </p>
+            </div>
+          </article>
+        </div>
       </section>
     </div>
   );
