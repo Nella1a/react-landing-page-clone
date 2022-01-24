@@ -1,0 +1,41 @@
+/** @jsxImportSource @emotion/react */
+import { ClassNames, css, Global, jsx } from '@emotion/react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Global
+      styles={css`
+        *,
+        ::after,
+        :before {
+          box-sizing: border-box;
+        }
+        body {
+          margin: 0;
+          background-color: rgb(41, 41, 41);
+          color: rgb(255, 254, 248);
+          font-size: 17px;
+          border: 1px solid red;
+          font-family: Aeonic, sans-serif;
+        }
+        h2,
+        h3,
+        h1 {
+          padding: 0;
+          margin: 0;
+        }
+      `}
+    />
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
