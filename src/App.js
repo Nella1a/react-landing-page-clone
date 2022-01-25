@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import './App.css';
 import { ClassNames, css, Global, jsx } from '@emotion/react';
+import { AiFillAppstore } from 'react-icons/fa';
 import { ReactComponent as FlowerIcon } from './img/all.svg';
 // import Forbes from './img/Forbes.png';
 // import Gartner from './img/Gartner.png';
@@ -62,15 +63,13 @@ const navButton = css`
   font-size: 17px;
 `;
 
-//**** section one
+// section one
 const sectionOneStyle = css`
-display: flex;
-height: 31.25rem;
-
-
+  display: flex;
+  height: 31.25rem;
   position: relative;
   top: 9rem;
-  margin:auto;
+  margin: auto;
 
   h1 {
     color: rgb(251, 178, 84);
@@ -88,28 +87,25 @@ height: 31.25rem;
     padding-left: 1rem;
     margin: 2.5rem 0rem;
 
-
-
     span {
       &::before {
-          content: ' ';
-          display: block;
-        }
+        content: ' ';
+        display: block;
       }
     }
   }
 
-    p{
-      font-weight: 400px;
-      text-align: left;
-      font-size: 1.5rem;
-      color: #bfbfbf;
-      margin-top: 0px
-    }
+  p {
+    font-weight: 400px;
+    text-align: left;
+    font-size: 1.5rem;
+    color: #bfbfbf;
+    margin-top: 0px;
+  }
 
-    span {
-      color: #96A5F3
-    }
+  span {
+    color: #96a5f3;
+  }
 `;
 
 const sectionOneArticle = css`
@@ -125,17 +121,13 @@ const paragraphBorderStyle = css`
   font-size: 17px;
 `;
 
-/* const imageSectionOne = css`
-  width: 6rem;
-`; */
-
 const divButtonStyle = css`
   display: flex;
   justify-content: flex-start;
   gap: 0.8rem;
 `;
 
-const ButtonStyleSectionOne = css`
+const buttonStyleSectionOne = css`
   width: 13.6rem;
   &:hover {
     background-color: rgb(20, 44, 167);
@@ -143,14 +135,10 @@ const ButtonStyleSectionOne = css`
   }
 `;
 
-const ButtonStyleSectionTwo = css`
+const buttonStyleSectionTwo = css`
   width: 9rem;
   background-color: transparent;
   border: 1px solid #fff;
-  &:hover {
-    background-color: rgb(62, 62, 62);
-    border: 1px solid rgb(62, 62, 62);
-  }
 `;
 
 // section two
@@ -159,15 +147,15 @@ const sectionTwoStyle = css`
   margin: 3.5rem auto;
 `;
 
-//Section Three
+// Section Three
 
-const sectionThree_Container = css`
+const sectionThreeContainer = css`
   display: flex;
   justify-content: space-between;
 `;
 
-//Section Four
-const sectionFour_Container = css`
+// Section Four
+const sectionFourContainer = css`
   display: flex;
   flex-direction: column;
   padding-top: 9rem;
@@ -180,22 +168,82 @@ const sectionFour_Container = css`
   }
 `;
 
-const DivFlowerIcon = css`
+const divFlowerIcon = css`
   position: relative;
-  border: 1px solid green;
-  background-color: rgb(25, 56, 213);
+  /* border: 1px solid green; */
+  /* background-color: rgb(25, 56, 213); */
   border-radius: 10px;
   height: 48px;
   width: 48px;
   padding: 10px;
 `;
 
+const iconBackgroundBlue = css`
+  background-color: rgb(25, 56, 213);
+`;
+
+const iconBackgroundOrange = css`
+  background-color: rgb(248, 120, 83);
+`;
+
+const iconBackgroundPurple = css`
+  background-color: rgb(142, 118, 220);
+`;
+
+const iconBackgroundYellow = css`
+  background-color: rgb(251, 178, 84);
+`;
+
+const iconBackgroundPink = css`
+  background-color: rgb(129, 38, 93);
+`;
+
+const iconBackgroundLightBlue = css`
+  background-color: rgb(28, 255, 228);
+`;
+
+// Hover-Colors
+const divIconColorBlue = css`
+  &:hover {
+    background-color: rgb(25, 56, 213);
+  }
+`;
+
+const divIconColorOrange = css`
+  &:hover {
+    background-color: rgb(248, 120, 83);
+  }
+`;
+
+const divIconColorPurple = css`
+  &:hover {
+    background-color: rgb(142, 118, 220);
+  }
+`;
+
+const divIconColorYellow = css`
+  &:hover {
+    background-color: rgb(251, 178, 84);
+  }
+`;
+
+const divIconColorPink = css`
+  &:hover {
+    background-color: rgb(129, 38, 93);
+  }
+`;
+
+const divIconColorLightBlue = css`
+  &:hover {
+    background-color: rgb(28, 255, 228);
+  }
+`;
+
 const sectionFourArticle = css`
   display: flex;
   padding: 3rem;
-
-  border-radius: 10px;
-  border: 1px solid yellow;
+  border-radius: 15px;
+  /* border: 1px solid yellow; */
 
   h2 {
     margin-bottom: 8px;
@@ -203,10 +251,6 @@ const sectionFourArticle = css`
 
   p {
     color: rgb(148, 148, 148);
-  }
-
-  &:hover {
-    background-color: rgb(248, 120, 83);
   }
 `;
 
@@ -279,9 +323,9 @@ function Forbes() {
   return <img width="inherit" src={require('./img/Forbes.png')} alt="Logo" />;
 }
 
-function FlowerPower() {
-  return <img width="inherit" src={require('./img/all.svg')} alt="Logo" />;
-}
+// function FlowerPower() {
+//   return <img width="inherit" src={require('./img/all.svg')} alt="Logo" />;
+// }
 
 function App() {
   return (
@@ -291,7 +335,7 @@ function App() {
           <li>
             <LogoQatalog />
           </li>
-          <li css={specificLiStyle}>Produts</li>
+          <li css={specificLiStyle}>Products</li>
           <li>Plans</li>
           <li>Request demo</li>
           <li>Login</li>
@@ -309,10 +353,10 @@ function App() {
           </h2>
           <p>Try the work hub for modern teams</p>
           <div css={divButtonStyle}>
-            <button css={[navButton, ButtonStyleSectionOne]}>
+            <button css={[navButton, buttonStyleSectionOne]}>
               Sign up with Google
             </button>
-            <button css={[navButton, ButtonStyleSectionTwo]}>Play video</button>
+            <button css={[navButton, buttonStyleSectionTwo]}>Play video</button>
           </div>
           <p css={paragraphBorderStyle}>Or sign up via email </p>
           <p style={{ fontSize: '.9rem', fontWeight: '300' }}>
@@ -336,7 +380,7 @@ function App() {
         <ImgOfThrePeople />
       </section>
       {/* Section Three */}
-      <section css={sectionThree_Container}>
+      <section css={sectionThreeContainer}>
         <LogoIcon />
         <VentureBeat />
         <TechCrunch />
@@ -344,12 +388,12 @@ function App() {
         <Forbes />
       </section>
       {/* Section Four */}
-      <section css={sectionFour_Container}>
+      <section css={sectionFourContainer}>
         <h1>It is time for a new way of work</h1>
         <div css={flexSectionFourContainer}>
-          <article css={sectionFourArticle}>
-            <div css={DivFlowerIcon}>
-              <FlowerPower />
+          <article css={[sectionFourArticle, divIconColorBlue]}>
+            <div css={[divFlowerIcon, iconBackgroundBlue]}>
+              <FlowerIcon />
             </div>
             <div>
               <h3 css={sectionFourh3}>See what is important</h3>
@@ -358,25 +402,61 @@ function App() {
               </p>
             </div>
           </article>
-          <article css={sectionFourArticle}>
-            <div css={DivFlowerIcon}>
-              <FlowerPower />
+          <article css={[sectionFourArticle, divIconColorOrange]}>
+            <div css={[divFlowerIcon, iconBackgroundOrange]}>
+              <FlowerIcon />
             </div>
             <div>
-              <h3 css={sectionFourh3}>See what is important</h3>
+              <h3 css={sectionFourh3}>Search across your tools</h3>
               <p css={sectionFourParagraph}>
-                Gain visibility into al your people, work and tools
+                Find anything from files to messages to lines of code
               </p>
             </div>
           </article>
-          <article css={sectionFourArticle}>
-            <div css={DivFlowerIcon}>
-              <FlowerPower />
+          <article css={[sectionFourArticle, divIconColorPurple]}>
+            <div css={[divFlowerIcon, iconBackgroundPurple]}>
+              <FlowerIcon />
             </div>
             <div>
-              <h3 css={sectionFourh3}>See what is important</h3>
+              <h3 css={sectionFourh3}>Centralize projects</h3>
               <p css={sectionFourParagraph}>
-                Gain visibility into al your people, work and tools
+                Statuses, activity, people, anf files - in a single view
+              </p>
+            </div>
+          </article>
+        </div>
+        {/* ----- second row ----- */}
+        <div css={flexSectionFourContainer}>
+          <article css={[sectionFourArticle, divIconColorYellow]}>
+            <div css={[divFlowerIcon, iconBackgroundYellow]}>
+              <FlowerIcon />
+            </div>
+            <div>
+              <h3 css={sectionFourh3}>Align on goals</h3>
+              <p css={sectionFourParagraph}>
+                Work that's connected to the big picture
+              </p>
+            </div>
+          </article>
+          <article css={[sectionFourArticle, divIconColorPink]}>
+            <div css={[divFlowerIcon, iconBackgroundPink]}>
+              <FlowerIcon />
+            </div>
+            <div>
+              <h3 css={sectionFourh3}>Automate processes</h3>
+              <p css={sectionFourParagraph}>
+                Workflows that are easy for anyone to use
+              </p>
+            </div>
+          </article>
+          <article css={[sectionFourArticle, divIconColorLightBlue]}>
+            <div css={[divFlowerIcon, iconBackgroundLightBlue]}>
+              <FlowerIcon />
+            </div>
+            <div>
+              <h3 css={sectionFourh3}>Build belonging</h3>
+              <p css={sectionFourParagraph}>
+                A directory that connects to people's work
               </p>
             </div>
           </article>
