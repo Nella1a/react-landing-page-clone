@@ -1,12 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import './App.css';
-import { ClassNames, css, Global, jsx } from '@emotion/react';
+import { css } from '@emotion/react';
+import React, { useState } from 'react';
 import { AiFillAppstore } from 'react-icons/fa';
-import { ReactComponent as FlowerIcon } from './img/all.svg';
+import { ReactComponent as Circle } from './img/circle.svg';
+import { ReactComponent as FlowerIcon } from './img/close-square-outline.svg';
+import { ReactComponent as GridLayout } from './img/grid-outline.svg';
 // import Forbes from './img/Forbes.png';
 // import Gartner from './img/Gartner.png';
 import ImagePeopleSectionOne from './img/ImagePeopleSectionOne.png';
+import { ReactComponent as Minimize } from './img/minimize.svg';
+import { ReactComponent as People } from './img/people.svg';
 import { ReactComponent as LogoIcon } from './img/ProductOfTheDay.svg';
+import { ReactComponent as RadioButton } from './img/radioButton.svg';
+import { ReactComponent as Rocket } from './img/rocket.svg';
 import sectionOneImage from './img/sectionOneImage.png';
 
 // import TechCrunch from './img/TechCrunch.png';
@@ -14,16 +21,30 @@ import sectionOneImage from './img/sectionOneImage.png';
 
 // Page: https://qatalog.com/?ref=landingfolio
 
-//style nav bar & ul, li, button
-const navStyle = css`
-  padding: 0 2rem;
-  width: 87.5rem;
+// const container = css`
+//   width: 80%;
+//   margin: 0 auto;
+// `;
+
+const container = css`
+  width: 90%;
   margin: 0 auto;
+`;
+
+// style nav bar & ul, li, button
+const navStyle = css`
+  /* padding: 0 2rem; */
+  /* width: 87.5rem; */
+  width: 100vmax;
+  /* padding: 0 3rem; */
+  /* margin: 0 auto; */
   height: auto;
   position: fixed;
   /* border: 1px solid green; */
   z-index: 2;
-  background-color: rgb(41, 41, 41);
+  background-color: rgba(41, 41, 41);
+  padding: 1rem 5rem 1rem 0rem;
+  display: flex;
 
   ul {
     width: inherit;
@@ -32,8 +53,9 @@ const navStyle = css`
     gap: 50px;
     color: #fff;
     justify-content: space-between;
-    padding: 0.5rem;
-    position: relative;
+    /* padding: 0.5rem; */
+    /* position: relative; */
+    margin-right: 2rem;
   }
 
   li {
@@ -47,20 +69,22 @@ const specificLiStyle = css`
   margin-left: auto;
 `;
 
-const liButtonContainer = css`
-  position: relative;
+const buttonStyleGeneral = css`
+  background-color: rgb(25, 56, 213);
+  height: 3.1rem;
+  color: #fff;
+  border-radius: 19px;
+  font-size: 17px;
 `;
 
 const navButton = css`
-  background-color: rgb(25, 56, 213);
-  width: 5.6rem;
-  height: 3.1rem;
-  color: #fff;
+  width: 8.6rem;
   border: 0;
-  border-radius: 17px;
-  position: relative;
-  top: -0.5rem;
-  font-size: 17px;
+  margin: 0.5rem 2rem;
+  &:hover {
+    background-color: rgb(20, 44, 167);
+    border: 2px solid rgb(20, 44, 167);
+  }
 `;
 
 // section one
@@ -98,9 +122,7 @@ const sectionOneStyle = css`
   p {
     font-weight: 400px;
     text-align: left;
-    font-size: 1.5rem;
     color: #bfbfbf;
-    margin-top: 0px;
   }
 
   span {
@@ -114,11 +136,15 @@ const sectionOneArticle = css`
   padding: 0.5rem;
 `;
 
+const paragraphBorderStyleOne = css`
+  margin-top: 0px;
+  font-size: 1.5rem;
+`;
+
 const paragraphBorderStyle = css`
   border-bottom: 1px dashed #ffff;
-  color: #ffff;
   width: 11.1rem;
-  font-size: 17px;
+  font-size: 1rem;
 `;
 
 const divButtonStyle = css`
@@ -128,10 +154,12 @@ const divButtonStyle = css`
 `;
 
 const buttonStyleSectionOne = css`
+  border: none;
   width: 13.6rem;
+  margin: 0;
   &:hover {
     background-color: rgb(20, 44, 167);
-    border: 1px solid rgb(20, 44, 167);
+    border: 2px solid rgb(20, 44, 167);
   }
 `;
 
@@ -139,12 +167,21 @@ const buttonStyleSectionTwo = css`
   width: 9rem;
   background-color: transparent;
   border: 1px solid #fff;
+  margin: 0;
+  &:hover {
+    background-color: grey;
+    border: none;
+  }
 `;
 
 // section two
 const sectionTwoStyle = css`
-  width: 105%;
-  margin: 3.5rem auto;
+  /* /* width: 105%; */
+  margin: 3.2rem auto;
+  /* width: 1000px; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
 `;
 
 // Section Three
@@ -169,13 +206,16 @@ const sectionFourContainer = css`
 `;
 
 const divFlowerIcon = css`
-  position: relative;
+  /* position: relative; */
   /* border: 1px solid green; */
   /* background-color: rgb(25, 56, 213); */
   border-radius: 10px;
   height: 48px;
   width: 48px;
   padding: 10px;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
 `;
 
 const iconBackgroundBlue = css`
@@ -256,18 +296,30 @@ const sectionFourArticle = css`
 
 const flexSectionFourContainer = css`
   display: flex;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  p {
+    font-size: 1rem;
+    width: 80%;
+    margin: 0;
+    text-align: left;
+  }
 `;
 
-const sectionFourh3 = css`
-  font-size: 1.5rem;
-  font-weight: 300;
-  margin-bottom: 1rem; ;
+const sectionFourPaddingOnDiv = css`
+  padding-left: 2rem;
 `;
 
 const sectionFourParagraph = css`
-  font-size: 1rem;
+  /* font-size: 1rem;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto; */
 `;
 
 function LogoQatalog() {
@@ -291,17 +343,17 @@ function ImgOfThrePeople() {
   );
 }
 
-function Header() {
-  // Import result is the URL of your image
-  return (
-    <img
-      css={sectionTwoStyle}
-      width="inherit"
-      src={sectionOneImage}
-      alt="Logo"
-    />
-  );
-}
+// function Header() {
+//   // Import result is the URL of your image
+//   return (
+//     <img
+//       css={sectionTwoStyle}
+//       width="inherit"
+//       src={sectionOneImage}
+//       alt="Logo"
+//     />
+//   );
+// }
 
 function VentureBeat() {
   return (
@@ -323,40 +375,54 @@ function Forbes() {
   return <img width="inherit" src={require('./img/Forbes.png')} alt="Logo" />;
 }
 
-// function FlowerPower() {
-//   return <img width="inherit" src={require('./img/all.svg')} alt="Logo" />;
-// }
+function CloseQuare() {
+  return (
+    <img
+      width="30px"
+      src={require('./img/close-square-outline.svg')}
+      alt="Logo"
+      style={{ positon: 'absolute' }}
+    />
+  );
+}
 
 function App() {
+  const [{ backg }, setBgr] = useState('');
+
   return (
-    <div className="App">
+    <div className="App" css={container}>
+      {/* <div css={container}> */}
       <nav css={navStyle}>
+        <LogoQatalog />
         <ul>
-          <li>
+          {/* <li>
             <LogoQatalog />
-          </li>
+          </li> */}
           <li css={specificLiStyle}>Products</li>
           <li>Plans</li>
           <li>Request demo</li>
           <li>Login</li>
-          <li css={liButtonContainer}>
+          {/* <li css={liButtonContainer}>
             <button css={navButton}>Sign Up</button>
-          </li>
+          </li> */}
         </ul>
+        <button css={[navButton, buttonStyleGeneral]}>Sign Up</button>
       </nav>
-
+      {/* first section */}
       <section css={sectionOneStyle}>
         <article>
           <h1>No more</h1>
           <h2>
             Why are we <span>doing this</span>
           </h2>
-          <p>Try the work hub for modern teams</p>
+          <p css={paragraphBorderStyleOne}>Try the work hub for modern teams</p>
           <div css={divButtonStyle}>
-            <button css={[navButton, buttonStyleSectionOne]}>
+            <button css={[buttonStyleGeneral, buttonStyleSectionOne]}>
               Sign up with Google
             </button>
-            <button css={[navButton, buttonStyleSectionTwo]}>Play video</button>
+            <button css={[buttonStyleGeneral, buttonStyleSectionTwo]}>
+              Play video
+            </button>
           </div>
           <p css={paragraphBorderStyle}>Or sign up via email </p>
           <p style={{ fontSize: '.9rem', fontWeight: '300' }}>
@@ -371,9 +437,9 @@ function App() {
             backgroundRepeat: 'no-repeat',
             minWidth: '800px',
             height: 'auto',
-            marginLeft: '90px',
+            marginLeft: '50px',
           }}
-        ></article>
+        />
       </section>
       {/* Section Two */}
       <section css={sectionTwoStyle}>
@@ -387,16 +453,25 @@ function App() {
         <Gartner />
         <Forbes />
       </section>
-      {/* Section Four */}
+      {/* ----- Section Four: It is time for a new way of work ------  */}
       <section css={sectionFourContainer}>
         <h1>It is time for a new way of work</h1>
         <div css={flexSectionFourContainer}>
           <article css={[sectionFourArticle, divIconColorBlue]}>
             <div css={[divFlowerIcon, iconBackgroundBlue]}>
-              <FlowerIcon />
+              <GridLayout
+                style={{
+                  width: '24px',
+                  height: '24px',
+
+                  // margin: '.4rem',
+                  //   position: 'absolute',
+                  //   top: '.7rem',
+                }}
+              />
             </div>
-            <div>
-              <h3 css={sectionFourh3}>See what is important</h3>
+            <div css={sectionFourPaddingOnDiv}>
+              <h3>See what is important</h3>
               <p css={sectionFourParagraph}>
                 Gain visibility into al your people, work and tools
               </p>
@@ -404,10 +479,15 @@ function App() {
           </article>
           <article css={[sectionFourArticle, divIconColorOrange]}>
             <div css={[divFlowerIcon, iconBackgroundOrange]}>
-              <FlowerIcon />
+              <Minimize
+                style={{
+                  width: '24px',
+                  height: '24px',
+                }}
+              />
             </div>
-            <div>
-              <h3 css={sectionFourh3}>Search across your tools</h3>
+            <div css={sectionFourPaddingOnDiv}>
+              <h3>Search across your tools</h3>
               <p css={sectionFourParagraph}>
                 Find anything from files to messages to lines of code
               </p>
@@ -415,10 +495,15 @@ function App() {
           </article>
           <article css={[sectionFourArticle, divIconColorPurple]}>
             <div css={[divFlowerIcon, iconBackgroundPurple]}>
-              <FlowerIcon />
+              <Rocket
+                style={{
+                  width: '24px',
+                  height: '24px',
+                }}
+              />
             </div>
-            <div>
-              <h3 css={sectionFourh3}>Centralize projects</h3>
+            <div css={sectionFourPaddingOnDiv}>
+              <h3>Centralize projects</h3>
               <p css={sectionFourParagraph}>
                 Statuses, activity, people, anf files - in a single view
               </p>
@@ -429,10 +514,15 @@ function App() {
         <div css={flexSectionFourContainer}>
           <article css={[sectionFourArticle, divIconColorYellow]}>
             <div css={[divFlowerIcon, iconBackgroundYellow]}>
-              <FlowerIcon />
+              <RadioButton
+                style={{
+                  width: '24px',
+                  height: '24px',
+                }}
+              />
             </div>
-            <div>
-              <h3 css={sectionFourh3}>Align on goals</h3>
+            <div css={sectionFourPaddingOnDiv}>
+              <h3>Align on goals</h3>
               <p css={sectionFourParagraph}>
                 Work that's connected to the big picture
               </p>
@@ -440,10 +530,10 @@ function App() {
           </article>
           <article css={[sectionFourArticle, divIconColorPink]}>
             <div css={[divFlowerIcon, iconBackgroundPink]}>
-              <FlowerIcon />
+              <Circle />
             </div>
-            <div>
-              <h3 css={sectionFourh3}>Automate processes</h3>
+            <div css={sectionFourPaddingOnDiv}>
+              <h3>Automate processes</h3>
               <p css={sectionFourParagraph}>
                 Workflows that are easy for anyone to use
               </p>
@@ -451,10 +541,10 @@ function App() {
           </article>
           <article css={[sectionFourArticle, divIconColorLightBlue]}>
             <div css={[divFlowerIcon, iconBackgroundLightBlue]}>
-              <FlowerIcon />
+              <People />
             </div>
-            <div>
-              <h3 css={sectionFourh3}>Build belonging</h3>
+            <div css={sectionFourPaddingOnDiv}>
+              <h3>Build belonging</h3>
               <p css={sectionFourParagraph}>
                 A directory that connects to people's work
               </p>
@@ -463,6 +553,7 @@ function App() {
         </div>
       </section>
     </div>
+    // </div>
   );
 }
 
