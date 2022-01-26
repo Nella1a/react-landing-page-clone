@@ -2,12 +2,8 @@
 import './App.css';
 import { css } from '@emotion/react';
 import React, { useState } from 'react';
-import { AiFillAppstore } from 'react-icons/fa';
 import { ReactComponent as Circle } from './img/circle.svg';
-import { ReactComponent as FlowerIcon } from './img/close-square-outline.svg';
 import { ReactComponent as GridLayout } from './img/grid-outline.svg';
-// import Forbes from './img/Forbes.png';
-// import Gartner from './img/Gartner.png';
 import ImagePeopleSectionOne from './img/ImagePeopleSectionOne.png';
 import { ReactComponent as Minimize } from './img/minimize.svg';
 import { ReactComponent as People } from './img/people.svg';
@@ -16,22 +12,12 @@ import { ReactComponent as RadioButton } from './img/radioButton.svg';
 import { ReactComponent as Rocket } from './img/rocket.svg';
 import sectionOneImage from './img/sectionOneImage.png';
 
-// import TechCrunch from './img/TechCrunch.png';
-// import VentureBeat from './img/VentureBeat.png';
-
-// Page: https://qatalog.com/?ref=landingfolio
-
-// const container = css`
-//   width: 80%;
-//   margin: 0 auto;
-// `;
-
 const container = css`
   width: 90%;
   margin: 0 auto;
 `;
 
-// style nav bar & ul, li, button
+// style nav bar
 const navStyle = css`
   /* padding: 0 2rem; */
   /* width: 87.5rem; */
@@ -130,12 +116,6 @@ const sectionOneStyle = css`
   }
 `;
 
-const sectionOneArticle = css`
-  display: flex;
-  flex-direction: column;
-  padding: 0.5rem;
-`;
-
 const paragraphBorderStyleOne = css`
   margin-top: 0px;
   font-size: 1.5rem;
@@ -174,24 +154,22 @@ const buttonStyleSectionTwo = css`
   }
 `;
 
-// section two
+// section two (pic of three people)
 const sectionTwoStyle = css`
-  /* /* width: 105%; */
   margin: 3.2rem auto;
-  /* width: 1000px; */
   display: flex;
   justify-content: center;
   text-align: center;
 `;
 
-// Section Three
+// Section Three (5 brands Product of the Day, Venture Beat etc  )
 
 const sectionThreeContainer = css`
   display: flex;
   justify-content: space-between;
 `;
 
-// Section Four
+// Section Four (It's time for a new way of work )
 const sectionFourContainer = css`
   display: flex;
   flex-direction: column;
@@ -206,9 +184,6 @@ const sectionFourContainer = css`
 `;
 
 const divFlowerIcon = css`
-  /* position: relative; */
-  /* border: 1px solid green; */
-  /* background-color: rgb(25, 56, 213); */
   border-radius: 10px;
   height: 48px;
   width: 48px;
@@ -218,10 +193,11 @@ const divFlowerIcon = css`
   align-items: center;
 `;
 
-const iconBackgroundBlue = css`
-  background-color: rgb(25, 56, 213);
+const headingcolor = (hovered) => css`
+  background-color: ${hovered ? '#000' : `rgb(25, 56, 213)`};
 `;
 
+// style child-elements (icons inside div's)
 const iconBackgroundOrange = css`
   background-color: rgb(248, 120, 83);
 `;
@@ -242,7 +218,7 @@ const iconBackgroundLightBlue = css`
   background-color: rgb(28, 255, 228);
 `;
 
-// Hover-Colors
+// style parent-elements
 const divIconColorBlue = css`
   &:hover {
     background-color: rgb(25, 56, 213);
@@ -252,6 +228,11 @@ const divIconColorBlue = css`
 const divIconColorOrange = css`
   &:hover {
     background-color: rgb(248, 120, 83);
+    color: #000;
+
+    p {
+      color: #000;
+    }
   }
 `;
 
@@ -264,6 +245,10 @@ const divIconColorPurple = css`
 const divIconColorYellow = css`
   &:hover {
     background-color: rgb(251, 178, 84);
+
+    p {
+      color: #000;
+    }
   }
 `;
 
@@ -276,6 +261,10 @@ const divIconColorPink = css`
 const divIconColorLightBlue = css`
   &:hover {
     background-color: rgb(28, 255, 228);
+
+    p {
+      color: #000;
+    }
   }
 `;
 
@@ -283,7 +272,6 @@ const sectionFourArticle = css`
   display: flex;
   padding: 3rem;
   border-radius: 15px;
-  /* border: 1px solid yellow; */
 
   h2 {
     margin-bottom: 8px;
@@ -316,12 +304,7 @@ const sectionFourPaddingOnDiv = css`
   padding-left: 2rem;
 `;
 
-const sectionFourParagraph = css`
-  /* font-size: 1rem;
-  width: 80%;
-  margin: 0 auto; */
-`;
-
+// style img
 function LogoQatalog() {
   return (
     <img width="inherit" src={require('./img/logoQataog.png')} alt="Logo" />
@@ -342,19 +325,7 @@ function ImgOfThrePeople() {
     />
   );
 }
-
-// function Header() {
-//   // Import result is the URL of your image
-//   return (
-//     <img
-//       css={sectionTwoStyle}
-//       width="inherit"
-//       src={sectionOneImage}
-//       alt="Logo"
-//     />
-//   );
-// }
-
+// try to use a component
 function VentureBeat() {
   return (
     <img width="inherit" src={require('./img/VentureBeat.png')} alt="Logo" />
@@ -375,36 +346,18 @@ function Forbes() {
   return <img width="inherit" src={require('./img/Forbes.png')} alt="Logo" />;
 }
 
-function CloseQuare() {
-  return (
-    <img
-      width="30px"
-      src={require('./img/close-square-outline.svg')}
-      alt="Logo"
-      style={{ positon: 'absolute' }}
-    />
-  );
-}
-
 function App() {
-  const [{ backg }, setBgr] = useState('');
+  const [hovered, setChange] = useState(false);
 
   return (
     <div className="App" css={container}>
-      {/* <div css={container}> */}
       <nav css={navStyle}>
         <LogoQatalog />
         <ul>
-          {/* <li>
-            <LogoQatalog />
-          </li> */}
           <li css={specificLiStyle}>Products</li>
           <li>Plans</li>
           <li>Request demo</li>
           <li>Login</li>
-          {/* <li css={liButtonContainer}>
-            <button css={navButton}>Sign Up</button>
-          </li> */}
         </ul>
         <button css={[navButton, buttonStyleGeneral]}>Sign Up</button>
       </nav>
@@ -457,24 +410,22 @@ function App() {
       <section css={sectionFourContainer}>
         <h1>It is time for a new way of work</h1>
         <div css={flexSectionFourContainer}>
-          <article css={[sectionFourArticle, divIconColorBlue]}>
-            <div css={[divFlowerIcon, iconBackgroundBlue]}>
+          <article
+            css={[sectionFourArticle, divIconColorBlue]}
+            onMouseEnter={() => setChange(true)}
+            onMouseLeave={() => setChange(false)}
+          >
+            <div css={[divFlowerIcon, headingcolor(hovered)]}>
               <GridLayout
                 style={{
                   width: '24px',
                   height: '24px',
-
-                  // margin: '.4rem',
-                  //   position: 'absolute',
-                  //   top: '.7rem',
                 }}
               />
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>See what is important</h3>
-              <p css={sectionFourParagraph}>
-                Gain visibility into al your people, work and tools
-              </p>
+              <p>Gain visibility into al your people, work and tools</p>
             </div>
           </article>
           <article css={[sectionFourArticle, divIconColorOrange]}>
@@ -488,9 +439,7 @@ function App() {
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>Search across your tools</h3>
-              <p css={sectionFourParagraph}>
-                Find anything from files to messages to lines of code
-              </p>
+              <p>Find anything from files to messages to lines of code</p>
             </div>
           </article>
           <article css={[sectionFourArticle, divIconColorPurple]}>
@@ -504,9 +453,7 @@ function App() {
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>Centralize projects</h3>
-              <p css={sectionFourParagraph}>
-                Statuses, activity, people, anf files - in a single view
-              </p>
+              <p>Statuses, activity, people, and files - in a single view</p>
             </div>
           </article>
         </div>
@@ -523,9 +470,7 @@ function App() {
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>Align on goals</h3>
-              <p css={sectionFourParagraph}>
-                Work that's connected to the big picture
-              </p>
+              <p>Work that's connected to the big picture</p>
             </div>
           </article>
           <article css={[sectionFourArticle, divIconColorPink]}>
@@ -534,9 +479,7 @@ function App() {
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>Automate processes</h3>
-              <p css={sectionFourParagraph}>
-                Workflows that are easy for anyone to use
-              </p>
+              <p>Workflows that are easy for anyone to use</p>
             </div>
           </article>
           <article css={[sectionFourArticle, divIconColorLightBlue]}>
@@ -545,9 +488,7 @@ function App() {
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>Build belonging</h3>
-              <p css={sectionFourParagraph}>
-                A directory that connects to people's work
-              </p>
+              <p>A directory that connects to people's work</p>
             </div>
           </article>
         </div>

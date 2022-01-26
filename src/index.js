@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { ClassNames, css, Global, jsx } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -22,8 +22,7 @@ ReactDOM.render(
           background-color: rgb(41, 41, 41);
           color: rgb(255, 254, 248);
           font-size: 17px;
-
-          font-family: Aeonic, sans-serif;
+          font-family: sans-serif;
         }
         h2,
         h3,

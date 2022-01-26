@@ -1,0 +1,91 @@
+/** @jsxImportSource @emotion/react */
+import './App.css';
+import { css } from '@emotion/react';
+import React, { useState } from 'react';
+import { AiFillAppstore } from 'react-icons/fa';
+// import { arrayBuffer } from 'stream/consumers';
+import { ReactComponent as Circle } from './img/circle.svg';
+import { ReactComponent as FlowerIcon } from './img/close-square-outline.svg';
+import { ReactComponent as GridLayout } from './img/grid-outline.svg';
+// import Forbes from './img/Forbes.png';
+// import Gartner from './img/Gartner.png';
+import ImagePeopleSectionOne from './img/ImagePeopleSectionOne.png';
+import { ReactComponent as Minimize } from './img/minimize.svg';
+import { ReactComponent as People } from './img/people.svg';
+import { ReactComponent as LogoIcon } from './img/ProductOfTheDay.svg';
+import { ReactComponent as RadioButton } from './img/radioButton.svg';
+import { ReactComponent as Rocket } from './img/rocket.svg';
+import sectionOneImage from './img/sectionOneImage.png';
+
+// import TechCrunch from './img/TechCrunch.png';
+// import VentureBeat from './img/VentureBeat.png';
+
+// Page: https://qatalog.com/?ref=landingfolio
+
+// const container = css`
+//   width: 80%;
+//   margin: 0 auto;
+// `;
+
+const articleStyle = css`
+  border: 1px solid red;
+  width: 300px;
+  color: #fff;
+  background-color: lightblue;
+`;
+
+const headerOne = css`
+  width: 530px;
+  height: 30px;
+  background-color: green;
+  margin: 10px;
+  padding: 2px;
+  font-weight: 400;
+  color: #000;
+`;
+
+const headingcolor = (hovered) => css`
+  color: ${hovered ? '#fff' : '#000'};
+`;
+
+/*
+const heandingColor = function (hovered) {
+  return css`
+  color: ${hovered ? `#fff`: '#000'}
+  `;
+
+
+  ====>
+
+  const heandingColor = () => {}
+}
+
+
+
+*/
+
+function App() {
+  const [hovered, setChange] = useState(false);
+  console.log(hovered);
+
+  return (
+    <div className="App">
+      <section
+        css={articleStyle}
+        onMouseEnter={() => setChange(true)}
+        onMouseLeave={() => setChange(false)}
+      >
+        <article>
+          <h1 css={headerOne}>Hover to Change the color of the heading</h1>
+          <div>
+            <h2 css={headingcolor(hovered)}>Yea my color is changing</h2>
+          </div>
+
+          <p>This is a para</p>
+        </article>
+      </section>
+    </div>
+  );
+}
+
+export default App;
