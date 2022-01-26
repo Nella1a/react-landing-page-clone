@@ -3,15 +3,23 @@ import './App.css';
 import { css } from '@emotion/react';
 import React, { useState } from 'react';
 import { ReactComponent as Circle } from './img/circle.svg';
-import { ReactComponent as GridLayout } from './img/grid-outline.svg';
+import { ReactComponent as GridIcon } from './img/firstIconSecFour.svg';
+import { ReactComponent as Forbes } from './img/forbes.svg';
+import { ReactComponent as Gartner } from './img/gartner.svg';
+import { ReactComponent as ImgGoogle } from './img/googleImg.svg';
 import ImagePeopleSectionOne from './img/ImagePeopleSectionOne.png';
-import { ReactComponent as Minimize } from './img/minimize.svg';
+import { ReactComponent as NavLogo } from './img/navLogo.svg';
 import { ReactComponent as People } from './img/people.svg';
+import { ReactComponent as PlayButton } from './img/playbutton.svg';
 import { ReactComponent as LogoIcon } from './img/ProductOfTheDay.svg';
 import { ReactComponent as RadioButton } from './img/radioButton.svg';
 import { ReactComponent as Rocket } from './img/rocket.svg';
+import { ReactComponent as MagGlas } from './img/secondIconSectionFour.svg';
 import sectionOneImage from './img/sectionOneImage.png';
+import { ReactComponent as TechCrunch } from './img/techCrunch.svg';
+import { ReactComponent as VentureBeat } from './img/ventureBeat.svg';
 
+// Original-Page: https://qatalog.com/?ref=landingfolio
 const container = css`
   width: 90%;
   margin: 0 auto;
@@ -19,14 +27,9 @@ const container = css`
 
 // style nav bar
 const navStyle = css`
-  /* padding: 0 2rem; */
-  /* width: 87.5rem; */
   width: 100vmax;
-  /* padding: 0 3rem; */
-  /* margin: 0 auto; */
   height: auto;
   position: fixed;
-  /* border: 1px solid green; */
   z-index: 2;
   background-color: rgba(41, 41, 41);
   padding: 1rem 5rem 1rem 0rem;
@@ -39,8 +42,6 @@ const navStyle = css`
     gap: 50px;
     color: #fff;
     justify-content: space-between;
-    /* padding: 0.5rem; */
-    /* position: relative; */
     margin-right: 2rem;
   }
 
@@ -137,6 +138,9 @@ const buttonStyleSectionOne = css`
   border: none;
   width: 13.6rem;
   margin: 0;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.9rem;
   &:hover {
     background-color: rgb(20, 44, 167);
     border: 2px solid rgb(20, 44, 167);
@@ -148,6 +152,9 @@ const buttonStyleSectionTwo = css`
   background-color: transparent;
   border: 1px solid #fff;
   margin: 0;
+  display: flex;
+  padding: 0.8rem;
+  gap: 0.5rem;
   &:hover {
     background-color: grey;
     border: none;
@@ -194,40 +201,28 @@ const divFlowerIcon = css`
 `;
 
 const headingcolor = (hovered) => css`
-  background-color: ${hovered ? '#000' : `rgb(25, 56, 213)`};
+  background-color: ${hovered && `#000`};
 `;
 
 // style child-elements (icons inside div's)
-const iconBackgroundOrange = css`
-  background-color: rgb(248, 120, 83);
-`;
-
-const iconBackgroundPurple = css`
-  background-color: rgb(142, 118, 220);
-`;
-
-const iconBackgroundYellow = css`
-  background-color: rgb(251, 178, 84);
-`;
-
-const iconBackgroundPink = css`
-  background-color: rgb(129, 38, 93);
-`;
-
-const iconBackgroundLightBlue = css`
-  background-color: rgb(28, 255, 228);
+const iconBgrColor = (bgrColor) => css`
+  background-color: ${bgrColor};
 `;
 
 // style parent-elements
+
 const divIconColorBlue = css`
   &:hover {
     background-color: rgb(25, 56, 213);
+    p {
+      color: #fff;
+    }
   }
 `;
 
-const divIconColorOrange = css`
+const divAndParagraphIconColorHover = (color) => css`
   &:hover {
-    background-color: rgb(248, 120, 83);
+    background-color: ${color};
     color: #000;
 
     p {
@@ -236,41 +231,19 @@ const divIconColorOrange = css`
   }
 `;
 
-const divIconColorPurple = css`
+const divColorHover = (divColor) => css`
   &:hover {
-    background-color: rgb(142, 118, 220);
-  }
-`;
-
-const divIconColorYellow = css`
-  &:hover {
-    background-color: rgb(251, 178, 84);
+    background-color: ${divColor};
 
     p {
-      color: #000;
-    }
-  }
-`;
-
-const divIconColorPink = css`
-  &:hover {
-    background-color: rgb(129, 38, 93);
-  }
-`;
-
-const divIconColorLightBlue = css`
-  &:hover {
-    background-color: rgb(28, 255, 228);
-
-    p {
-      color: #000;
+      color: #fff;
     }
   }
 `;
 
 const sectionFourArticle = css`
   display: flex;
-  padding: 3rem;
+  padding: 1.5rem;
   border-radius: 15px;
 
   h2 {
@@ -304,13 +277,6 @@ const sectionFourPaddingOnDiv = css`
   padding-left: 2rem;
 `;
 
-// style img
-function LogoQatalog() {
-  return (
-    <img width="inherit" src={require('./img/logoQataog.png')} alt="Logo" />
-  );
-}
-
 function ImgOfThrePeople() {
   return (
     <img
@@ -325,34 +291,20 @@ function ImgOfThrePeople() {
     />
   );
 }
-// try to use a component
-function VentureBeat() {
-  return (
-    <img width="inherit" src={require('./img/VentureBeat.png')} alt="Logo" />
-  );
-}
-
-function TechCrunch() {
-  return (
-    <img width="inherit" src={require('./img/TechCrunch.png')} alt="Logo" />
-  );
-}
-
-function Gartner() {
-  return <img width="inherit" src={require('./img/Gartner.png')} alt="Logo" />;
-}
-
-function Forbes() {
-  return <img width="inherit" src={require('./img/Forbes.png')} alt="Logo" />;
-}
 
 function App() {
   const [hovered, setChange] = useState(false);
+  const [hoverTwo, setChangeTwo] = useState(false);
+  const [hoverThree, setChangeThree] = useState(false);
+  const [hoverFour, setChangeFour] = useState(false);
+  const [hoverFive, setChangeFive] = useState(false);
+  const [hoverSix, setChangeSix] = useState(false);
 
   return (
     <div className="App" css={container}>
+      {/* navigation bar */}
       <nav css={navStyle}>
-        <LogoQatalog />
+        <NavLogo />
         <ul>
           <li css={specificLiStyle}>Products</li>
           <li>Plans</li>
@@ -371,15 +323,18 @@ function App() {
           <p css={paragraphBorderStyleOne}>Try the work hub for modern teams</p>
           <div css={divButtonStyle}>
             <button css={[buttonStyleGeneral, buttonStyleSectionOne]}>
+              <ImgGoogle style={{ width: '20px' }} />
               Sign up with Google
             </button>
             <button css={[buttonStyleGeneral, buttonStyleSectionTwo]}>
+              <PlayButton />
               Play video
             </button>
           </div>
           <p css={paragraphBorderStyle}>Or sign up via email </p>
           <p style={{ fontSize: '.9rem', fontWeight: '300' }}>
-            By signing up, you agree to our <span>Privacy Policy</span> and
+            By signing up, you agree to our <span>Privacy Policy</span>
+            and
             <span> Terms of Service.</span>
           </p>
         </article>
@@ -415,35 +370,54 @@ function App() {
             onMouseEnter={() => setChange(true)}
             onMouseLeave={() => setChange(false)}
           >
-            <div css={[divFlowerIcon, headingcolor(hovered)]}>
-              <GridLayout
-                style={{
-                  width: '24px',
-                  height: '24px',
-                }}
-              />
+            <div
+              css={[
+                divFlowerIcon,
+                iconBgrColor('rgb(25, 56, 213)'),
+                headingcolor(hovered),
+              ]}
+            >
+              <GridIcon />
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>See what is important</h3>
               <p>Gain visibility into al your people, work and tools</p>
             </div>
           </article>
-          <article css={[sectionFourArticle, divIconColorOrange]}>
-            <div css={[divFlowerIcon, iconBackgroundOrange]}>
-              <Minimize
-                style={{
-                  width: '24px',
-                  height: '24px',
-                }}
-              />
+          <article
+            css={[
+              sectionFourArticle,
+              divAndParagraphIconColorHover('rgb(248, 120, 83)'),
+            ]}
+            onMouseEnter={() => setChangeTwo(true)}
+            onMouseLeave={() => setChangeTwo(false)}
+          >
+            <div
+              css={[
+                divFlowerIcon,
+                iconBgrColor('rgb(248, 120, 83)'),
+                headingcolor(hoverTwo),
+              ]}
+            >
+              <MagGlas />
             </div>
             <div css={sectionFourPaddingOnDiv}>
               <h3>Search across your tools</h3>
               <p>Find anything from files to messages to lines of code</p>
             </div>
           </article>
-          <article css={[sectionFourArticle, divIconColorPurple]}>
-            <div css={[divFlowerIcon, iconBackgroundPurple]}>
+          <article
+            css={[sectionFourArticle, divColorHover('rgb(142, 118, 220)')]}
+            onMouseEnter={() => setChangeThree(true)}
+            onMouseLeave={() => setChangeThree(false)}
+          >
+            <div
+              css={[
+                divFlowerIcon,
+                iconBgrColor(`rgb(142, 118, 220)`),
+                headingcolor(hoverThree),
+              ]}
+            >
               <Rocket
                 style={{
                   width: '24px',
@@ -459,8 +433,21 @@ function App() {
         </div>
         {/* ----- second row ----- */}
         <div css={flexSectionFourContainer}>
-          <article css={[sectionFourArticle, divIconColorYellow]}>
-            <div css={[divFlowerIcon, iconBackgroundYellow]}>
+          <article
+            css={[
+              sectionFourArticle,
+              divAndParagraphIconColorHover('rgb(251, 178, 84)'),
+            ]}
+            onMouseEnter={() => setChangeFour(true)}
+            onMouseLeave={() => setChangeFour(false)}
+          >
+            <div
+              css={[
+                divFlowerIcon,
+                iconBgrColor('rgb(251, 178, 84)'),
+                headingcolor(hoverFour),
+              ]}
+            >
               <RadioButton
                 style={{
                   width: '24px',
@@ -473,8 +460,18 @@ function App() {
               <p>Work that's connected to the big picture</p>
             </div>
           </article>
-          <article css={[sectionFourArticle, divIconColorPink]}>
-            <div css={[divFlowerIcon, iconBackgroundPink]}>
+          <article
+            css={[sectionFourArticle, divColorHover('rgb(142, 118, 220)')]}
+            onMouseEnter={() => setChangeFive(true)}
+            onMouseLeave={() => setChangeFive(false)}
+          >
+            <div
+              css={[
+                divFlowerIcon,
+                iconBgrColor('rgb(129, 38, 93)'),
+                headingcolor(hoverFive),
+              ]}
+            >
               <Circle />
             </div>
             <div css={sectionFourPaddingOnDiv}>
@@ -482,8 +479,21 @@ function App() {
               <p>Workflows that are easy for anyone to use</p>
             </div>
           </article>
-          <article css={[sectionFourArticle, divIconColorLightBlue]}>
-            <div css={[divFlowerIcon, iconBackgroundLightBlue]}>
+          <article
+            css={[
+              sectionFourArticle,
+              divAndParagraphIconColorHover('rgb(28, 255, 228)'),
+            ]}
+            onMouseEnter={() => setChangeSix(true)}
+            onMouseLeave={() => setChangeSix(false)}
+          >
+            <div
+              css={[
+                divFlowerIcon,
+                iconBgrColor('rgb(28, 255, 228)'),
+                headingcolor(hoverSix),
+              ]}
+            >
               <People />
             </div>
             <div css={sectionFourPaddingOnDiv}>
