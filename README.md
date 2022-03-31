@@ -1,9 +1,14 @@
-# React Landing Page Clone
+### React Landing Page Clone
 
-Rebuilding landig page with React and emotion:
+Rebuilding a landig page with React and emotion:
 
-- original lp: https://qatalog.com/?ref=landingfolio
-- screenshot:
+- original: url and screenshot
+https://qatalog.com/?ref=landingfolio
 <p>
   <img src="./public/landingPageScreenshotOne.png" width="400" alt="screenhot of original landig page">
+</p>
+
+- screenshot of clone
+<p>
+  <img src="./public/clonePageOne.png" width="400" alt="screenhot of original landig page">
 </p>
