@@ -10,5 +10,5 @@ https://qatalog.com/?ref=landingfolio
 
 - screenshot of clone
 <p>
-  <img src="./public/clonePageOne.png" width="400" alt="screenhot of original landig page">
+  <img src="./public/clonePageOne.png" width="400" alt="screenhot of landig page clone">
 </p>
