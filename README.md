@@ -8,7 +8,7 @@ https://qatalog.com/?ref=landingfolio
   <img src="./public/landingPageScreenshotOne.png" width="400" alt="screenhot of original landig page">
 </p>
 
-- screenshot of clone
+- screenshot of landing page clone
 <p>
-  <img src="./public/clonePageOne.png" width="400" alt="screenhot of landig page clone">
+  <img src="/public/clonePageOne.png" width="400" alt="screenhot of landig page clone">
 </p>
